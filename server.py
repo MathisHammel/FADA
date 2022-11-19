@@ -2,9 +2,7 @@ import base64
 import glob
 import numpy as np
 import os
-import random
 import ssl
-import tensorflow as tf
 import threading
 import time
 import traceback
@@ -12,12 +10,11 @@ import traceback
 from elasticsearch import Elasticsearch
 from elasticsearch.connection import create_ssl_context
 from elasticsearch import helpers
-from flask import Flask, abort, request, redirect, render_template
+from flask import Flask, abort, request, render_template
 from werkzeug.utils import secure_filename
 from imageio import imread
 from keras.models import load_model
 from PIL import Image
-from urllib.parse import quote
 
 
 FACENET_PATH = 'facenet/facenet_keras.h5'
@@ -131,8 +128,8 @@ def indexer_thread(model, elastic):
             try:
                 if avail_filenames:
                     error_filename = min(avail_filenames)
-                    print('Moving', error_filename, error_filename.replace('download/', 'error/'))
-                    os.rename(error_filename, error_filename.replace('download/', 'error/'))
+                    print('Moving', error_filename, error_filename.replace('downloads/', 'errors/'))
+                    os.rename(error_filename, error_filename.replace('downloads/', 'errors/'))
             except:
                 print('!!! Error while moving broken file')
 

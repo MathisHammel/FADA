@@ -1,0 +1,4 @@
+downloads/*.jpeg
+errors/*.jpeg
+logs/*.log
+venv/

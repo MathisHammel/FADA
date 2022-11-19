@@ -1,0 +1,5 @@
+requests
+elasticsearch
+flask
+imageio
+tensorflow
