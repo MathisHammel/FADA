@@ -1,4 +1,5 @@
 start: stop
+	. env/bin/activate
 	python3 downloader.py > logs/downloader.$(shell date +%s).log 2>&1  &
 	python3 server.py > logs/server.$(shell date +%s).log 2>&1 &
 

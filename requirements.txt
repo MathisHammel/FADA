@@ -3,3 +3,4 @@ elasticsearch
 flask
 imageio
 tensorflow
+numpy
